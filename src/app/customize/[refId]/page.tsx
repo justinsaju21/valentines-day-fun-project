@@ -157,8 +157,16 @@ export default function CustomizePage() {
                             <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
                                 <input type="text" value={shareLink} readOnly style={{ flex: 1, minWidth: "200px", padding: "12px 16px", border: "2px solid #10b981", borderRadius: "12px", background: "white", fontSize: "14px" }} />
                                 <button onClick={copyLink} style={{ padding: "12px 20px", background: "#10b981", color: "white", border: "none", borderRadius: "12px", fontWeight: "600", cursor: "pointer" }}>
-                                    {copied ? "Copied! ✓" : "Copy Link"}
+                                    {copied ? "Copied! ✓" : "Copy"}
                                 </button>
+                                <a
+                                    href={`https://wa.me/?text=${encodeURIComponent(`Hey! I made something special for you 💕\n\n${shareLink}`)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    style={{ padding: "12px 20px", background: "#25D366", color: "white", border: "none", borderRadius: "12px", fontWeight: "600", textDecoration: "none", display: "flex", alignItems: "center", gap: "6px" }}
+                                >
+                                    📱 WhatsApp
+                                </a>
                             </div>
                             <div style={{ marginTop: "16px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
                                 <Link href={`/v/${refId}?preview=1`} target="_blank" style={{ color: "#047857", fontWeight: "500" }}>Preview →</Link>

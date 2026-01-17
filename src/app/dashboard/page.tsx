@@ -236,11 +236,19 @@ export default function DashboardPage() {
                     {/* Share Link */}
                     <div style={{ marginBottom: "32px" }}>
                         <label className="input-label">Share this link with your crush:</label>
-                        <div style={{ display: "flex", gap: "8px", marginTop: "8px" }}>
-                            <input type="text" value={shareLink} readOnly className="input-field" style={{ flex: 1 }} />
+                        <div style={{ display: "flex", gap: "8px", marginTop: "8px", flexWrap: "wrap" }}>
+                            <input type="text" value={shareLink} readOnly className="input-field" style={{ flex: 1, minWidth: "180px" }} />
                             <button onClick={copyLink} style={{ padding: "12px 20px", background: "#ef4444", color: "white", border: "none", borderRadius: "12px", fontWeight: "600", cursor: "pointer", whiteSpace: "nowrap" }}>
                                 {copied ? "Copied ✓" : "Copy"}
                             </button>
+                            <a
+                                href={`https://wa.me/?text=${encodeURIComponent(`Hey! I made something special for you 💕\n\n${shareLink}`)}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{ padding: "12px 20px", background: "#25D366", color: "white", border: "none", borderRadius: "12px", fontWeight: "600", textDecoration: "none", whiteSpace: "nowrap" }}
+                            >
+                                📱 WhatsApp
+                            </a>
                         </div>
                     </div>
 
