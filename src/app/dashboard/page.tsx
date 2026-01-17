@@ -255,6 +255,17 @@ export default function DashboardPage() {
                             ✏️ Edit
                         </Link>
                     </div>
+
+                    {/* Donation Section */}
+                    <div style={{ marginTop: "32px", padding: "20px", background: "rgba(255,255,255,0.5)", borderRadius: "16px", textAlign: "center" }}>
+                        <p style={{ fontSize: "16px", fontWeight: "600", color: "#374151", marginBottom: "8px" }}>☕ Enjoying Valentine Builder?</p>
+                        <p style={{ fontSize: "13px", color: "#6b7280", marginBottom: "16px" }}>Support the creator with a small tip!</p>
+                        <div style={{ display: "flex", gap: "8px", justifyContent: "center", flexWrap: "wrap" }}>
+                            <a href="upi://pay?pa=justinsaju21@oksbi&pn=Valentine%20Builder&am=50&cu=INR" style={{ padding: "10px 20px", background: "#ef4444", color: "white", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>₹50</a>
+                            <a href="upi://pay?pa=justinsaju21@oksbi&pn=Valentine%20Builder&am=100&cu=INR" style={{ padding: "10px 20px", background: "#ef4444", color: "white", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>₹100</a>
+                            <a href="upi://pay?pa=justinsaju21@oksbi&pn=Valentine%20Builder&am=150&cu=INR" style={{ padding: "10px 20px", background: "#ef4444", color: "white", borderRadius: "25px", textDecoration: "none", fontWeight: "600" }}>₹150</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

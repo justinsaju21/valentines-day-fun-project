@@ -26,7 +26,7 @@ export default function CelebrationPage() {
 
     const theme = proposal?.theme ? themes[proposal.theme] : themes.classic;
     const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "justinsaju21@oksbi";
-    const predefinedAmounts = [50, 100, 500];
+    const predefinedAmounts = [50, 100, 150];
 
     const finalAmount = customAmount ? parseInt(customAmount) : (selectedAmount || 0);
     const upiLink = `upi://pay?pa=${UPI_ID}&pn=Valentine%20Gift&am=${finalAmount}&cu=INR`;
@@ -150,7 +150,7 @@ export default function CelebrationPage() {
                 <img
                     src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmo3c3l5ODh3ZGN6NHhhaDE2Mjg1ZjkwOXczdDFxbWM3dTBtaW9zaiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9XY4f3FgFTT4QlaYqa/giphy.gif"
                     alt="Celebration"
-                    style={{ maxWidth: "220px", borderRadius: "20px", boxShadow: "0 8px 30px rgba(0,0,0,0.15)", marginBottom: "24px" }}
+                    style={{ maxWidth: "220px", borderRadius: "20px", boxShadow: "0 8px 30px rgba(0,0,0,0.15)", marginBottom: "24px", display: "block", marginLeft: "auto", marginRight: "auto" }}
                 />
 
                 <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginBottom: "32px" }}>

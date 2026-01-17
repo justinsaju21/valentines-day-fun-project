@@ -164,6 +164,24 @@ export default function CustomizePage() {
                                 <Link href={`/v/${refId}`} target="_blank" style={{ color: "#047857", fontWeight: "500" }}>Preview →</Link>
                                 <Link href="/dashboard" style={{ color: "#047857", fontWeight: "500" }}>Dashboard →</Link>
                             </div>
+                            <div style={{ marginTop: "16px", padding: "12px", background: "rgba(255,255,255,0.5)", borderRadius: "8px", fontSize: "13px", color: "#065f46" }}>
+                                💡 <strong>Save your Reference ID:</strong> <code style={{ background: "#d1fae5", padding: "2px 6px", borderRadius: "4px" }}>{refId}</code> — You'll need it to check the dashboard later!
+                            </div>
+                            <div style={{ marginTop: "20px", paddingTop: "16px", borderTop: "1px solid #10b981" }}>
+                                <p style={{ fontSize: "14px", color: "#065f46", marginBottom: "12px" }}>☕ Enjoying this? Support the creator!</p>
+                                <a
+                                    href={`upi://pay?pa=justinsaju21@oksbi&pn=Valentine%20Builder&am=50&cu=INR`}
+                                    style={{ display: "inline-block", padding: "8px 16px", background: "#10b981", color: "white", borderRadius: "20px", textDecoration: "none", fontSize: "13px", fontWeight: "600", marginRight: "8px" }}
+                                >₹50</a>
+                                <a
+                                    href={`upi://pay?pa=justinsaju21@oksbi&pn=Valentine%20Builder&am=100&cu=INR`}
+                                    style={{ display: "inline-block", padding: "8px 16px", background: "#10b981", color: "white", borderRadius: "20px", textDecoration: "none", fontSize: "13px", fontWeight: "600", marginRight: "8px" }}
+                                >₹100</a>
+                                <a
+                                    href={`upi://pay?pa=justinsaju21@oksbi&pn=Valentine%20Builder&am=150&cu=INR`}
+                                    style={{ display: "inline-block", padding: "8px 16px", background: "#10b981", color: "white", borderRadius: "20px", textDecoration: "none", fontSize: "13px", fontWeight: "600" }}
+                                >₹150</a>
+                            </div>
                         </div>
                     )}
 

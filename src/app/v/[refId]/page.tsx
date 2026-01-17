@@ -20,7 +20,7 @@ export default function ProposalPage() {
     const [error, setError] = useState("");
     const [proposal, setProposal] = useState<ProposalData | null>(null);
     const [messageIndex, setMessageIndex] = useState(0);
-    const [yesSize, setYesSize] = useState(1.5);
+    const [yesSize, setYesSize] = useState(24);
     const [noText, setNoText] = useState("No");
     const [hearts, setHearts] = useState<{ id: number; left: string; size: string; duration: string; delay: string; emoji: string }[]>([]);
     const [shaking, setShaking] = useState(false);
@@ -88,7 +88,7 @@ export default function ProposalPage() {
 
         setNoText(messages[messageIndex]);
         setMessageIndex((prev) => (prev + 1) % messages.length);
-        setYesSize((prev) => Math.min(prev * 1.25, 4));
+        setYesSize((prev) => Math.min(prev + 8, 64));
         setShaking(true);
         setTimeout(() => setShaking(false), 400);
     };
@@ -151,7 +151,7 @@ export default function ProposalPage() {
                         className={`btn-grow ${shaking ? "animate-shake" : ""}`}
                         style={{
                             padding: "16px 32px",
-                            fontSize: `${yesSize}em`,
+                            fontSize: `${yesSize}px`,
                             fontWeight: "700",
                             color: "white",
                             background: theme.buttonYes,
