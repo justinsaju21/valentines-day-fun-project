@@ -249,7 +249,7 @@ export default function DashboardPage() {
                         <button onClick={handleRefresh} disabled={loading} style={{ padding: "12px 24px", background: "rgba(255,255,255,0.6)", border: "none", borderRadius: "50px", fontWeight: "600", cursor: "pointer" }}>
                             {loading ? "..." : "🔄 Refresh"}
                         </button>
-                        <Link href={`/v/${proposal.refId}`} target="_blank" style={{ padding: "12px 24px", background: "rgba(255,255,255,0.6)", borderRadius: "50px", fontWeight: "600", textDecoration: "none", color: "inherit" }}>
+                        <Link href={`/v/${proposal.refId}?preview=1`} target="_blank" style={{ padding: "12px 24px", background: "rgba(255,255,255,0.6)", borderRadius: "50px", fontWeight: "600", textDecoration: "none", color: "inherit" }}>
                             👁️ Preview
                         </Link>
                         <Link href={`/customize/${proposal.refId}`} style={{ padding: "12px 24px", background: "rgba(255,255,255,0.6)", borderRadius: "50px", fontWeight: "600", textDecoration: "none", color: "inherit" }}>

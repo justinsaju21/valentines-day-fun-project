@@ -161,7 +161,7 @@ export default function CustomizePage() {
                                 </button>
                             </div>
                             <div style={{ marginTop: "16px", display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                                <Link href={`/v/${refId}`} target="_blank" style={{ color: "#047857", fontWeight: "500" }}>Preview →</Link>
+                                <Link href={`/v/${refId}?preview=1`} target="_blank" style={{ color: "#047857", fontWeight: "500" }}>Preview →</Link>
                                 <Link href="/dashboard" style={{ color: "#047857", fontWeight: "500" }}>Dashboard →</Link>
                             </div>
                             <div style={{ marginTop: "16px", padding: "12px", background: "rgba(255,255,255,0.5)", borderRadius: "8px", fontSize: "13px", color: "#065f46" }}>

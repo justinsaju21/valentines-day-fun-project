@@ -29,12 +29,25 @@ export default function ProposalPage() {
     const messages = proposal?.customMessages ? JSON.parse(proposal.customMessages) : defaultNoMessages;
 
     const trackOpen = useCallback(async () => {
+        // Skip if preview mode (creator viewing their own link)
+        if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('preview')) {
+            return;
+        }
+        // Skip if already tracked (localStorage cache)
+        const trackKey = `tracked_open_${refId}`;
+        if (typeof window !== 'undefined' && localStorage.getItem(trackKey)) {
+            return;
+        }
         try {
             await fetch("/api/track", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ refId, action: "open" }),
             });
+            // Mark as tracked
+            if (typeof window !== 'undefined') {
+                localStorage.setItem(trackKey, 'true');
+            }
         } catch {
             console.error("Failed to track open");
         }
