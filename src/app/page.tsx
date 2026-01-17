@@ -182,11 +182,23 @@ export default function Home() {
               ))}
             </div>
           </div>
+
+          {/* Tips & FAQ */}
+          <div style={{ marginTop: "32px", textAlign: "left", background: "rgba(255,255,255,0.4)", borderRadius: "16px", padding: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#dc2626", marginBottom: "16px" }}>💡 Good to Know</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "14px", color: "#374151" }}>
+              <div>✅ <strong>Multiple crushes?</strong> Create as many proposals as you want. Each gets a unique link!</div>
+              <div>✅ <strong>They refreshed the page?</strong> We only count the first open. No duplicates.</div>
+              <div>✅ <strong>Preview your proposal?</strong> Use the "Preview" button - it won't count as them opening it.</div>
+              <div>✅ <strong>Forgot your Reference ID?</strong> Check your browser history for the customize page URL.</div>
+              <div>✅ <strong>100% Free & Private.</strong> No signup required. Your data stays between you two. 💕</div>
+            </div>
+          </div>
         </div>
 
         {/* Footer */}
         <p style={{ color: "#6b7280", marginTop: "32px", fontSize: "14px" }}>
-          Made with ❤️ for lovers everywhere
+          Made with ❤️ by Justin
         </p>
       </div>
     </main>

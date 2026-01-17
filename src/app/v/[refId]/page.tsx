@@ -204,6 +204,27 @@ export default function ProposalPage() {
                     style={{ maxWidth: "200px", borderRadius: "20px", boxShadow: "0 8px 30px rgba(0,0,0,0.15)" }}
                 />
             </div>
+
+            {/* Viral CTA */}
+            <div style={{ marginTop: "24px", textAlign: "center", opacity: 0.9 }}>
+                <a
+                    href="/"
+                    style={{
+                        display: "inline-block",
+                        padding: "12px 24px",
+                        background: "rgba(255,255,255,0.2)",
+                        borderRadius: "30px",
+                        color: theme.textColor,
+                        textDecoration: "none",
+                        fontSize: "14px",
+                        fontWeight: "500",
+                        border: `1px solid ${theme.textColor}30`,
+                        transition: "all 0.2s"
+                    }}
+                >
+                    💘 Want one for your crush? Create yours free!
+                </a>
+            </div>
         </main>
     );
 }
