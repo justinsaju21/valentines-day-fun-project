@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useParams } from "next/navigation";
 import { themes, ThemeKey } from "@/lib/themes";
+import { QRCodeSVG } from "qrcode.react";
 
 interface ProposalData {
     creatorName: string;
@@ -19,9 +20,16 @@ export default function CelebrationPage() {
     const [showDonate, setShowDonate] = useState(false);
     const [hearts, setHearts] = useState<{ id: number; left: string; size: string; duration: string; emoji: string }[]>([]);
 
+    // Donation State
+    const [customAmount, setCustomAmount] = useState<string>("");
+    const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+
     const theme = proposal?.theme ? themes[proposal.theme] : themes.classic;
-    const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "your-upi-id@bank";
-    const donationAmounts = [10, 20, 30, 40, 50];
+    const UPI_ID = process.env.NEXT_PUBLIC_UPI_ID || "justinsaju21@oksbi";
+    const predefinedAmounts = [50, 100, 500];
+
+    const finalAmount = customAmount ? parseInt(customAmount) : (selectedAmount || 0);
+    const upiLink = `upi://pay?pa=${UPI_ID}&pn=Valentine%20Gift&am=${finalAmount}&cu=INR`;
 
     useEffect(() => {
         const loadProposal = async () => {
@@ -116,13 +124,8 @@ export default function CelebrationPage() {
         return () => clearTimeout(timer);
     }, [startConfetti, theme.hearts]);
 
-    const handleDonate = (amount: number) => {
-        const upiLink = `upi://pay?pa=${UPI_ID}&pn=Valentine%20Builder&am=${amount}&cu=INR`;
-        window.location.href = upiLink;
-    };
-
     return (
-        <main className={`theme-${proposal?.theme || "classic"}`} style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px", background: theme.background, overflow: "hidden" }}>
+        <main className={`theme-${proposal?.theme || "classic"}`} style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px", background: theme.background, overflow: "hidden", flexDirection: "column" }}>
             <canvas ref={canvasRef} id="confetti-canvas" />
 
             <div className="hearts-container">
@@ -133,7 +136,7 @@ export default function CelebrationPage() {
                 ))}
             </div>
 
-            <div className="glass-card animate-pop-in" style={{ padding: "48px 40px", maxWidth: "520px", width: "100%", textAlign: "center", position: "relative", zIndex: 10, background: theme.cardBg }}>
+            <div className="glass-card animate-pop-in" style={{ padding: "48px 40px", maxWidth: "520px", width: "100%", textAlign: "center", position: "relative", zIndex: 10, background: theme.cardBg, overflowY: "auto", maxHeight: "90vh" }}>
                 <div style={{ fontSize: "64px", marginBottom: "16px" }} className="animate-bounce-slow">🎉💕🎊</div>
 
                 <h1 style={{ fontSize: "clamp(32px, 6vw, 48px)", fontWeight: "700", color: theme.textColor, marginBottom: "16px", lineHeight: "1.2" }}>
@@ -159,30 +162,30 @@ export default function CelebrationPage() {
                 </div>
 
                 {showDonate && (
-                    <div className="animate-fade-in-up">
+                    <div className="animate-fade-in-up" style={{ borderTop: `1px solid ${theme.textColor}20`, paddingTop: "24px" }}>
                         <p style={{ fontSize: "18px", color: theme.textColor, marginBottom: "8px", fontWeight: "600" }}>
-                            Happy with this? 💕
+                            Send a Gift? 🎁
                         </p>
                         <p style={{ fontSize: "14px", color: theme.textColor, opacity: 0.7, marginBottom: "16px" }}>
-                            Support the creator with a small tip!
+                            Treat the creator to a coffee or more!
                         </p>
 
-                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px" }}>
-                            {donationAmounts.map((amount) => (
+                        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "16px" }}>
+                            {predefinedAmounts.map((amount) => (
                                 <button
                                     key={amount}
-                                    onClick={() => handleDonate(amount)}
+                                    onClick={() => { setSelectedAmount(amount); setCustomAmount(""); }}
                                     className="btn-grow"
                                     style={{
-                                        padding: "12px 20px",
-                                        fontSize: "16px",
+                                        padding: "8px 16px",
+                                        fontSize: "14px",
                                         fontWeight: "600",
-                                        color: "white",
-                                        background: theme.buttonYes,
-                                        border: "none",
-                                        borderRadius: "50px",
+                                        color: selectedAmount === amount ? "white" : theme.textColor,
+                                        background: selectedAmount === amount ? theme.buttonYes : "rgba(255,255,255,0.5)",
+                                        border: `1px solid ${selectedAmount === amount ? theme.buttonYes : theme.textColor + "40"}`,
+                                        borderRadius: "20px",
                                         cursor: "pointer",
-                                        boxShadow: "0 4px 15px rgba(0,0,0,0.1)",
+                                        transition: "all 0.2s"
                                     }}
                                 >
                                     ₹{amount}
@@ -190,9 +193,51 @@ export default function CelebrationPage() {
                             ))}
                         </div>
 
-                        <p style={{ fontSize: "12px", color: theme.textColor, opacity: 0.5, marginTop: "16px" }}>
-                            Payment via UPI (GPay, PhonePe, Paytm)
-                        </p>
+                        <div style={{ marginBottom: "20px" }}>
+                            <input
+                                type="number"
+                                placeholder="Custom Amount (₹)"
+                                value={customAmount}
+                                onChange={(e) => { setCustomAmount(e.target.value); setSelectedAmount(null); }}
+                                style={{
+                                    padding: "10px 16px",
+                                    borderRadius: "12px",
+                                    border: "1px solid rgba(0,0,0,0.1)",
+                                    width: "180px",
+                                    textAlign: "center",
+                                    background: "rgba(255,255,255,0.8)",
+                                    fontSize: "16px",
+                                    outline: "none"
+                                }}
+                            />
+                        </div>
+
+                        {finalAmount > 0 ? (
+                            <div className="animate-pop-in" style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
+                                <div style={{ background: "white", padding: "12px", borderRadius: "12px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)" }}>
+                                    <QRCodeSVG value={upiLink} size={150} />
+                                </div>
+
+                                <a
+                                    href={upiLink}
+                                    style={{
+                                        display: "inline-block",
+                                        padding: "12px 32px",
+                                        background: theme.buttonYes,
+                                        color: "white",
+                                        textDecoration: "none",
+                                        borderRadius: "50px",
+                                        fontWeight: "bold",
+                                        boxShadow: "0 4px 15px rgba(0,0,0,0.2)"
+                                    }}
+                                >
+                                    Pay ₹{finalAmount} via UPI
+                                </a>
+                                <p style={{ fontSize: "12px", opacity: 0.6 }}>Scan with GPay / Paytm / PhonePe</p>
+                            </div>
+                        ) : (
+                            <p style={{ fontSize: "14px", opacity: 0.6, fontStyle: "italic" }}>Select or enter an amount to generate QR code</p>
+                        )}
                     </div>
                 )}
             </div>
