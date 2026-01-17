@@ -34,9 +34,15 @@ export default function CustomizePage() {
                         creatorName: data.proposal.creatorName || "",
                         crushName: data.proposal.crushName || "",
                         theme: (data.proposal.theme as ThemeKey) || "classic",
-                        customMessages: data.proposal.customMessages
-                            ? JSON.parse(data.proposal.customMessages)
-                            : defaultNoMessages,
+                        customMessages: (function () {
+                            try {
+                                if (data.proposal.customMessages) {
+                                    const parsed = JSON.parse(data.proposal.customMessages);
+                                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                                }
+                            } catch (e) { console.error(e); }
+                            return defaultNoMessages;
+                        })(),
                     });
                 }
             } catch {
