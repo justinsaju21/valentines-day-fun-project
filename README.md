@@ -1,60 +1,36 @@
-# Will You Be My Valentine? 💌
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-This project is designed to be an interactive webpage to ask someone to be your Valentine. Please use this code as inspiration and avoid simply copying it without understanding or giving credit.
+## Getting Started
 
----
+First, run the development server:
 
-## How It Works 
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-This project consists of a simple webpage with a "Yes" and "No" button. When the user clicks the "No" button, the button text changes to a series of  messages, and the "Yes" button grows larger. If the user clicks the "Yes" button, they are redirected to a new page (`yes_page.html`).
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### Features:
-- **Interactive Buttons**: The "No" button cycles through , while the "Yes" button grows in size.
-- **Responsive Design**: The webpage is designed to work on all screen sizes.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## How to Use 
+## Learn More
 
-1. **Download the Files**:
-   - Clone this repository or download the `index.html`, `styles.css`,`yes_style.css`,`yes_page.html` and `script.js` files.
+To learn more about Next.js, take a look at the following resources:
 
-2. **Open the Project**:
-   - Open the `index.html` file in your web browser.
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
----
+## Deploy on Vercel
 
-## A Note on Code Usage 
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-While I am happy to share this project, I encourage you to use it as inspiration.
-If you use this code as a base for your own project, please give credit where it's due. A simple shoutout or link back to this repository is appreciated!
-
----
-
-## Code Overview 
-
-### Files:
-
-- `index.html`: The main HTML file that structures the webpage.
-- `styles.css`: The CSS file that styles the webpage.
-- `script.js`: The JavaScript file that handles the button interactions.
-- `yes_page.html`: The yes page that sturctures the webpage.
-- `yes_style.css`: The css file that styles the yes webpage.
-
-
-
-### Key Functions:
-
-- `handleNoClick()`: Changes the "No" button text and increases the size of the "Yes" button.
-- `handleYesClick()`: Redirects the user to `yes_page.html`.
-
----
-
-## License 📄
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Enjoy 💖
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
