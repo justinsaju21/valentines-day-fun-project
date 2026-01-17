@@ -1,0 +1,9 @@
+# Secrets
+valentine-builder-*.json
+*.pem
+.env*
+
+# Node
+node_modules/
+dist/
+.next/
