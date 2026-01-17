@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Valentine Builder 💕
 
-## Getting Started
+A premium SaaS-style application to create personalized digital Valentine's Day proposals. Built with Next.js, Tailwind CSS, and Google Sheets.
 
-First, run the development server:
+![Valentine Builder](public/landing.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features ✨
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   **Custom Proposals**: Create unique, password-protected proposal pages.
+-   **Themes**: Choose from multiple romantic themes (Romantic Red, Deep Blue, Cute Pink, etc.).
+-   **Live Dashboard**: Track if your crush has viewed the proposal and their answer ("YES!" or "NO").
+-   **Google Sheets Database**: All data is securely stored in your own Google Sheet.
+-   **Interactive UI**: Floating hearts, confetti explosions, and smooth animations.
+-   **Responsive Design**: Looks great on mobile and desktop.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack 🛠️
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+-   **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/) + Custom CSS
+-   **Database**: Google Sheets API
+-   **Security**: bcrypt password hashing
 
-## Learn More
+## Getting Started 🚀
 
-To learn more about Next.js, take a look at the following resources:
+### Prerequisites
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   Node.js 18+
+-   A Google Cloud Service Account (for Sheets API)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Installation
 
-## Deploy on Vercel
+1.  **Clone the repo**
+    ```bash
+    git clone https://github.com/justinsaju21/valentines-day-fun-project.git
+    cd valentines-day-fun-project
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+3.  **Setup Environment Variables**
+    Create a `.env.local` file in the root directory:
+    ```env
+    GOOGLE_SHEETS_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\n..."
+    GOOGLE_SHEETS_CLIENT_EMAIL="your-service-account@..."
+    GOOGLE_SHEETS_SPREADSHEET_ID="your-sheet-id"
+    NEXT_PUBLIC_APP_URL="http://localhost:3000"
+    ```
+
+4.  **Run Locally**
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000).
+
+## Deployment 🌍
+
+The easiest way to deploy is **Vercel**:
+
+1.  Push your code to GitHub.
+2.  Import the project in Vercel.
+3.  Add your environment variables in the Vercel dashboard.
+4.  Deploy!
+
+## License 📄
+
+This project is for entertainment purposes. Made with ❤️ by **Justin**.
