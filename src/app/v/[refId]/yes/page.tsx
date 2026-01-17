@@ -164,10 +164,10 @@ export default function CelebrationPage() {
                 {showDonate && (
                     <div className="animate-fade-in-up" style={{ borderTop: `1px solid ${theme.textColor}20`, paddingTop: "24px" }}>
                         <p style={{ fontSize: "18px", color: theme.textColor, marginBottom: "8px", fontWeight: "600" }}>
-                            Send a Gift? 🎁
+                            Loved this? 💕
                         </p>
                         <p style={{ fontSize: "14px", color: theme.textColor, opacity: 0.7, marginBottom: "16px" }}>
-                            Treat the creator to a coffee or more!
+                            Support this little app!
                         </p>
 
                         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginBottom: "16px" }}>

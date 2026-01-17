@@ -156,6 +156,7 @@ export default function DashboardPage() {
 
                     <p style={{ textAlign: "center", fontSize: "14px", color: "#6b7280", marginTop: "24px" }}>
                         Don&apos;t have a proposal yet? <Link href="/create" style={{ color: "#ef4444" }}>Create one</Link>
+                        <br /><span style={{ fontSize: "12px", opacity: 0.7 }}>💡 You can create multiple proposals!</span>
                     </p>
                 </div>
             </main>
