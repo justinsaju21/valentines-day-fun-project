@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+    
+    <div class="container">
+        <!-- Countdown Timer -->
+        <div class="countdown-container">
+            <p class="countdown-label">Valentine's Day Countdown</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+        </div>
+
+        <h1>Will you be <span class="highlight">Justin's</span> Valentine? 💕</h1>
+        
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes! 💖</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
+    </div>
+
+    <!-- Background Music (Romantic) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Click Sound -->
+    <audio id="clickSound" preload="auto">
+        <source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
+    </audio>
+
+    <button class="music-toggle" id="musicToggle" onclick="toggleMusic()">🎵</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
