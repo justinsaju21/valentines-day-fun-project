@@ -2,7 +2,14 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-pink-300 via-pink-200 to-pink-100 relative overflow-hidden flex flex-col">
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #ffecd2 100%)",
+        position: "relative",
+        overflow: "hidden",
+      }}
+    >
       {/* Floating Hearts Background */}
       <div className="hearts-container">
         {[
@@ -48,69 +55,128 @@ export default function Home() {
       </div>
 
       {/* Hero Section */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-10 w-full">
-        <div className="glass-card animate-fade-in-up p-8 md:p-12 max-w-2xl w-full text-center">
+      <div
+        style={{
+          position: "relative",
+          zIndex: 10,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          minHeight: "100vh",
+          padding: "40px 20px",
+        }}
+      >
+        <div
+          className="glass-card animate-fade-in-up"
+          style={{
+            padding: "48px 40px",
+            maxWidth: "680px",
+            width: "100%",
+            textAlign: "center",
+          }}
+        >
           {/* Logo */}
-          <div className="text-6xl md:text-7xl mb-6 animate-bounce-slow">
+          <div style={{ fontSize: "72px", marginBottom: "20px" }} className="animate-bounce-slow">
             💘
           </div>
 
           {/* Title */}
-          <h1 className="text-4xl md:text-6xl font-extrabold bg-gradient-to-r from-red-600 to-rose-500 bg-clip-text text-transparent mb-4 leading-tight">
+          <h1
+            style={{
+              fontSize: "48px",
+              fontWeight: "800",
+              background: "linear-gradient(135deg, #dc2626, #f43f5e)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+              marginBottom: "16px",
+              lineHeight: "1.2",
+            }}
+          >
             Valentine Builder
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">
+          <p style={{ fontSize: "20px", color: "#4b5563", marginBottom: "32px", lineHeight: "1.6" }}>
             Create a personalized Valentine proposal for your crush.
             <br />
-            <span className="text-red-500 font-bold block mt-2">They can&apos;t say no! 💕</span>
+            <span style={{ color: "#ef4444", fontWeight: "600" }}>They can&apos;t say no! 💕</span>
           </p>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(4, 1fr)",
+              gap: "12px",
+              marginBottom: "32px",
+            }}
+          >
             {[
               { emoji: "🎨", text: "4 Themes" },
               { emoji: "✏️", text: "Custom Messages" },
               { emoji: "🔗", text: "Shareable Link" },
               { emoji: "📊", text: "Track Status" },
             ].map((feature, i) => (
-              <div key={i} className="feature-card flex flex-col items-center justify-center p-4">
-                <div className="text-3xl mb-2">{feature.emoji}</div>
-                <div className="text-sm font-bold text-gray-700">{feature.text}</div>
+              <div key={i} className="feature-card">
+                <div style={{ fontSize: "28px", marginBottom: "6px" }}>{feature.emoji}</div>
+                <div style={{ fontSize: "13px", fontWeight: "600", color: "#374151" }}>{feature.text}</div>
               </div>
             ))}
           </div>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center w-full">
-            <Link href="/create" className="btn-primary btn-grow w-full sm:w-auto text-center">
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/create" className="btn-primary btn-grow">
               Create Your Proposal 💕
             </Link>
-            <Link href="/dashboard" className="btn-secondary btn-grow w-full sm:w-auto text-center">
+            <Link href="/dashboard" className="btn-secondary btn-grow">
               View Dashboard 📊
             </Link>
           </div>
 
           {/* How It Works */}
-          <div className="mt-12 text-left w-full">
-            <h2 className="text-2xl font-bold text-red-600 mb-6 text-center">
+          <div style={{ marginTop: "48px", textAlign: "left" }}>
+            <h2
+              style={{
+                fontSize: "24px",
+                fontWeight: "700",
+                color: "#dc2626",
+                marginBottom: "24px",
+                textAlign: "center",
+              }}
+            >
               How It Works
             </h2>
 
-            <div className="flex flex-col gap-5">
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {[
                 { step: 1, title: "Create Your Proposal", desc: "Set a password, customize names, choose a theme" },
                 { step: 2, title: "Share the Link", desc: "Send the unique link to your crush" },
                 { step: 3, title: 'Wait for "Yes!" 🎉', desc: "Check your dashboard to see when they say yes!" },
               ].map((item) => (
-                <div key={item.step} className="flex items-start gap-4">
-                  <div className="w-9 h-9 rounded-full bg-gradient-to-br from-red-500 to-rose-500 text-white flex items-center justify-center font-bold text-lg flex-shrink-0 shadow-md">
+                <div key={item.step} style={{ display: "flex", alignItems: "flex-start", gap: "16px" }}>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "50%",
+                      background: "linear-gradient(135deg, #ef4444, #f43f5e)",
+                      color: "white",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontWeight: "700",
+                      fontSize: "16px",
+                      flexShrink: 0,
+                    }}
+                  >
                     {item.step}
                   </div>
                   <div>
-                    <div className="font-semibold text-gray-800 text-base">{item.title}</div>
-                    <div className="text-gray-500 text-sm mt-0.5">{item.desc}</div>
+                    <div style={{ fontWeight: "600", color: "#1f2937", fontSize: "16px" }}>{item.title}</div>
+                    <div style={{ color: "#6b7280", fontSize: "14px", marginTop: "2px" }}>{item.desc}</div>
                   </div>
                 </div>
               ))}
@@ -118,22 +184,22 @@ export default function Home() {
           </div>
 
           {/* Tips & FAQ */}
-          <div className="mt-8 text-left bg-white/40 rounded-2xl p-6 shadow-sm">
-            <h3 className="text-lg font-bold text-red-600 mb-4 flex items-center gap-2">
-              💡 Good to Know
-            </h3>
-            <div className="flex flex-col gap-3 text-sm text-gray-700">
+          <div style={{ marginTop: "32px", textAlign: "left", background: "rgba(255,255,255,0.4)", borderRadius: "16px", padding: "24px" }}>
+            <h3 style={{ fontSize: "18px", fontWeight: "700", color: "#dc2626", marginBottom: "16px" }}>💡 Good to Know</h3>
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "14px", color: "#374151" }}>
               <div>✅ <strong>Multiple crushes?</strong> Create as many proposals as you want. Each gets a unique link!</div>
-              <div>✅ <strong>They refreshed the page?</strong> We only count the first open. No duplicate stats.</div>
-              <div>✅ <strong>Preview your proposal?</strong> Use the "Preview" button or add <code className="bg-red-50 text-red-600 px-1 rounded">?preview=1</code> to the URL.</div>
-              <div>✅ <strong>100% Free & Private.</strong> No signup required. Your data stays between you two. 💕</div>
+              <div>✅ <strong>They refreshed the page?</strong> We only count the first open. No duplicates.</div>
+              <div>✅ <strong>Preview your proposal?</strong> Use the &quot;Preview&quot; button - it won&apos;t count as them opening it.</div>
+              <div>✅ <strong>Forgot your Reference ID?</strong> Check your browser history for the customize page URL.</div>
+              <div>✅ <strong>100% Free &amp; Private.</strong> No signup required. Your data stays between you two. 💕</div>
             </div>
           </div>
-
-          <p className="text-gray-500 mt-8 text-xs">
-            Made with ❤️ by Justin
-          </p>
         </div>
+
+        {/* Footer */}
+        <p style={{ color: "#6b7280", marginTop: "32px", fontSize: "14px" }}>
+          Made with ❤️ by Justin
+        </p>
       </div>
     </main>
   );

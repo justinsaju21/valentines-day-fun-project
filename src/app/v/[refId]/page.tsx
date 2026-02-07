@@ -4,8 +4,8 @@ import ProposalClient from './ProposalClient';
 import { ThemeKey } from '@/lib/themes';
 
 interface Props {
-    params: { refId: string };
-    searchParams: { [key: string]: string | string[] | undefined };
+    params: Promise<{ refId: string }>;
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
 // Ensure dynamic rendering to fetch fresh data
@@ -14,7 +14,8 @@ export const dynamic = 'force-dynamic';
 export async function generateMetadata(
     { params }: Props
 ): Promise<Metadata> {
-    const proposal = await findProposalByRefId(params.refId);
+    const { refId } = await params;
+    const proposal = await findProposalByRefId(refId);
 
     if (!proposal) {
         return {
@@ -23,7 +24,7 @@ export async function generateMetadata(
     }
 
     const title = proposal.crushName
-        ? `${proposal.creatorName} has a specific question for ${proposal.crushName}...`
+        ? `${proposal.creatorName} has a question for ${proposal.crushName}...`
         : `${proposal.creatorName} has a question for you...`;
 
     return {
@@ -33,13 +34,14 @@ export async function generateMetadata(
             title: title,
             description: 'Will you be my Valentine? Click to see the surprise! 💕',
             type: 'website',
-            images: ['/og-image.png'], // You might want to dynamize this too based on theme eventually
+            images: ['/og-image.png'],
         },
     };
 }
 
 export default async function Page({ params }: Props) {
-    const proposal = await findProposalByRefId(params.refId);
+    const { refId } = await params;
+    const proposal = await findProposalByRefId(refId);
 
     // Convert to expected type (ThemeKey casting)
     const proposalData = proposal ? {
@@ -47,5 +49,5 @@ export default async function Page({ params }: Props) {
         theme: (proposal.theme as ThemeKey) || 'classic'
     } : null;
 
-    return <ProposalClient proposal={proposalData} refId={params.refId} />;
+    return <ProposalClient proposal={proposalData} refId={refId} />;
 }
