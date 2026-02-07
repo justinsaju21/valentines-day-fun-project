@@ -60,6 +60,11 @@ export default function CustomizePage() {
             return;
         }
 
+        if (!formData.crushName.trim()) {
+            setError("Please enter your crush's name");
+            return;
+        }
+
         setSaving(true);
         setError("");
 
@@ -202,8 +207,8 @@ export default function CustomizePage() {
                             </div>
 
                             <div>
-                                <label className="input-label">Crush&apos;s Name (optional)</label>
-                                <input type="text" value={formData.crushName} onChange={(e) => setFormData({ ...formData, crushName: e.target.value })} placeholder="Leave empty for a surprise!" className="input-field" />
+                                <label className="input-label">Crush&apos;s Name *</label>
+                                <input type="text" value={formData.crushName} onChange={(e) => setFormData({ ...formData, crushName: e.target.value })} placeholder="e.g., Sarah" className="input-field" />
                             </div>
 
                             <div>
