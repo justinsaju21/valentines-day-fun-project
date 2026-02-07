@@ -190,11 +190,13 @@ export default function ProposalClient({ proposal, refId }: ProposalClientProps)
                     </button>
                 </div>
 
-                <img
-                    src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
-                    alt="Cute pleading"
-                    style={{ maxWidth: "200px", borderRadius: "20px", boxShadow: "0 8px 30px rgba(0,0,0,0.15)" }}
-                />
+                <div style={{ display: "flex", justifyContent: "center", width: "100%" }}>
+                    <img
+                        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif"
+                        alt="Cute pleading"
+                        style={{ maxWidth: "200px", borderRadius: "20px", boxShadow: "0 8px 30px rgba(0,0,0,0.15)" }}
+                    />
+                </div>
             </div>
 
             {/* Viral CTA */}
