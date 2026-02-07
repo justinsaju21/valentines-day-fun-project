@@ -105,14 +105,7 @@ export default function Home() {
           </p>
 
           {/* Features Grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
-              gap: "12px",
-              marginBottom: "32px",
-            }}
-          >
+          <div className="features-grid">
             {[
               { emoji: "🎨", text: "4 Themes" },
               { emoji: "✏️", text: "Custom Messages" },

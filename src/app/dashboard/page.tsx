@@ -205,7 +205,7 @@ export default function DashboardPage() {
                     </div>
 
                     {/* Stats */}
-                    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "32px" }}>
+                    <div className="stats-grid">
                         <div style={{ background: "rgba(255,255,255,0.6)", borderRadius: "16px", padding: "20px", textAlign: "center" }}>
                             <div style={{ fontSize: "36px", fontWeight: "700", color: "#ef4444" }}>{proposal.noClicks}</div>
                             <div style={{ fontSize: "14px", color: "#6b7280" }}>&quot;No&quot; clicks 😂</div>

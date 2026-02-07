@@ -378,10 +378,39 @@ body {
   gap: 32px;
 }
 
+/* Homepage features grid */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+/* Dashboard stats grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* CTA buttons container */
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
   .customize-grid {
     grid-template-columns: 1fr;
     gap: 24px;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
@@ -397,6 +426,11 @@ body {
     padding: 14px 24px;
     font-size: 16px;
     width: 100%;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 12px;
   }
 
   .input-field {
@@ -417,7 +451,6 @@ body {
     font-size: 11px !important;
   }
 
-  /* Stack buttons vertically on mobile */
   .customize-grid {
     gap: 20px;
   }
@@ -432,6 +465,40 @@ body {
   h1 {
     font-size: 24px !important;
   }
+
+  /* Feature cards on mobile */
+  .feature-card {
+    padding: 12px 8px;
+  }
+
+  .feature-card div:first-child {
+    font-size: 24px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .feature-card div:last-child {
+    font-size: 11px !important;
+  }
+
+  /* Stats grid on mobile */
+  .stats-grid {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .stats-grid>div {
+    padding: 16px !important;
+  }
+
+  /* Proposal page image */
+  .proposal-gif {
+    max-width: 150px !important;
+  }
+
+  /* Yes page celebration emoji */
+  .celebration-emoji {
+    font-size: 48px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -443,5 +510,24 @@ body {
 
   .theme-option {
     padding: 12px 10px;
+  }
+
+  .features-grid {
+    gap: 8px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 22px !important;
+  }
+
+  /* Donation buttons on very small screens */
+  .donation-buttons a {
+    padding: 8px 14px !important;
+    font-size: 12px !important;
   }
 }
