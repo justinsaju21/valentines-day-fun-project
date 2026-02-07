@@ -370,20 +370,78 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+
+/* Customize page grid */
+.customize-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .customize-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
 @media (max-width: 640px) {
   .glass-card {
-    margin: 16px;
-    padding: 24px;
-    border-radius: 20px;
+    margin: 12px;
+    padding: 20px;
+    border-radius: 16px;
   }
 
   .btn-primary,
   .btn-secondary {
     padding: 14px 24px;
     font-size: 16px;
+    width: 100%;
   }
 
   .input-field {
     padding: 14px 16px;
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+  }
+
+  .theme-option {
+    padding: 16px 12px;
+  }
+
+  .theme-option div:first-child {
+    font-size: 14px !important;
+  }
+
+  .theme-option div:last-child {
+    font-size: 11px !important;
+  }
+
+  /* Stack buttons vertically on mobile */
+  .customize-grid {
+    gap: 20px;
+  }
+
+  /* Improve touch targets */
+  .link-back {
+    padding: 8px 0;
+    display: inline-block;
+  }
+
+  /* Header adjustments */
+  h1 {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-card {
+    margin: 8px;
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .theme-option {
+    padding: 12px 10px;
   }
 }
